@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: beauty-ecom-api
+    env: docker
+    plan: free
+    dockerCommand: "uvicorn src.api.main:app --host 0.0.0.0 --port $PORT"
+    healthCheckPath: /v1/health
+    envVars:
+      - key: PORT
+        value: 8000
